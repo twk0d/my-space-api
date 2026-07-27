@@ -1,7 +1,7 @@
 .idea/
 
-api/node_modules/
-api/dist/
-api/.data/
+node_modules/
+dist/
+.data/
 
 npm-debug.log*
