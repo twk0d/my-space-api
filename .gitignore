@@ -1,0 +1,7 @@
+.idea/
+
+api/node_modules/
+api/dist/
+api/.data/
+
+npm-debug.log*

@@ -1,25 +1,34 @@
 # API
 
-Go API workspace for the site.
+Nest.js API workspace for the site, running on Node 22 or Node 24.
+
+Node 24 is the preferred local/runtime version for this project.
 
 ## Development
 
-Run the API from the repository root:
+Install dependencies from the API workspace:
 
 ```bash
-pnpm api:dev
+cd api
+npm install
+```
+
+Run the API:
+
+```bash
+npm run dev
 ```
 
 The server listens on `:8080` by default. Override it with `API_ADDR`:
 
 ```bash
-API_ADDR=:8081 pnpm api:dev
+API_ADDR=:8081 npm run dev
 ```
 
 Admin routes require a bearer token configured with `API_ADMIN_TOKEN`:
 
 ```bash
-API_ADMIN_TOKEN=change-me pnpm api:dev
+API_ADMIN_TOKEN=change-me npm run dev
 ```
 
 The API stores data in `.data/api.json` by default. Override it with `API_DATA_PATH`.
@@ -27,19 +36,16 @@ In production, point `API_DATA_PATH` to a persistent volume, for example `/data/
 
 CORS allows `http://localhost:3000` by default. Override it with `API_ALLOW_ORIGIN`.
 
-## Container Image
-
-Build the API image from the repository root:
+## Scripts
 
 ```bash
-pnpm api:docker:build
+npm run build
+npm run start
+npm run test
+npm run test:e2e
 ```
 
-The Dockerfile expects the repository root as build context:
-
-```bash
-docker build -f apps/api/Dockerfile -t my-space-api .
-```
+## Deployment
 
 For deployment, configure these environment variables in the API host:
 
